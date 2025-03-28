@@ -1,0 +1,79 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Dependencies
+node_modules/
+packages/
+**/node_modules/
+**/packages/
+
+# Build outputs
+dist/
+build/
+bin/
+obj/
+**/dist/
+**/build/
+**/bin/
+**/obj/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+**/*.log
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+**/*.db
+**/*.db-shm
+**/*.db-wal
+
+# SSL Certificates
+*.pfx
+*.key
+*.crt
+**/*.pfx
+**/*.key
+**/*.crt
+
+# Submodule specific
+.git/
+.gitmodules
+**/.git/
+**/.gitmodules
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Visual Studio files
+.vs/
+**/.vs/
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# Angular specific
+.angular/
+**/.angular/ 
