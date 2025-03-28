@@ -44,13 +44,13 @@ git submodule update
      GOOGLE_CLIENT_SECRET=your_google_client_secret_here
 
      # Default values - can be changed in docker-compose.yml
-     CERTIFICATE_PATH=/certs/api_cert.pfx
-     CERTIFICATE_PASSWORD=123456
+     CERTIFICATE_PATH=your certificate path
+     CERTIFICATE_PASSWORD=your certificate password
      ```
 
 3. Ensure you have the SSL certificate:
    - Place your `api_cert.pfx` file in the `your certificate path` directory
-   - The default certificate password is `your certificate password` (can be changed in docker-compose.yml)
+
 
 ## Running the Application
 
