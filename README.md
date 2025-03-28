@@ -49,8 +49,8 @@ git submodule update
      ```
 
 3. Ensure you have the SSL certificate:
-   - Place your `api_cert.pfx` file in the `Products-ASP.NET/certs/` directory
-   - The default certificate password is `123456` (can be changed in docker-compose.yml)
+   - Place your `api_cert.pfx` file in the `your certificate path` directory
+   - The default certificate password is `your certificate password` (can be changed in docker-compose.yml)
 
 ## Running the Application
 
