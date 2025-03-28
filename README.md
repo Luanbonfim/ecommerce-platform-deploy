@@ -11,8 +11,8 @@ A full-stack e-commerce platform built with Angular (frontend) and ASP.NET Core 
 
 ```
 .
-├── ecommerce-platform-app/    # Angular frontend
-├── Products-ASP.NET/          # ASP.NET Core backend
+├── ecommerce-platform-app/    # Angular frontend (submodule)
+├── Products-ASP.NET/          # ASP.NET Core backend (submodule)
 │   ├── certs/                 # SSL certificates
 │   └── data/                  # SQLite database
 ├── docker-compose.yml         # Docker Compose configuration
@@ -22,10 +22,14 @@ A full-stack e-commerce platform built with Angular (frontend) and ASP.NET Core 
 
 ## Setup Instructions
 
-1. Clone the repository:
+1. Clone the repository with submodules:
 ```bash
-git clone <repository-url>
-cd ecommerce-platform
+# Clone the repository with submodules
+git clone --recursive https://github.com/Luanbonfim/ecommerce-platform-deploy.git
+
+# If you've already cloned without submodules, run:
+git submodule init
+git submodule update
 ```
 
 2. Create a `.env` file in the root directory with the following variables:
@@ -78,6 +82,41 @@ The application uses SQLite as its database:
 - Persisted using Docker volumes
 - Automatically initialized on first run
 
+## Working with Git Submodules
+
+### Updating Submodules
+```bash
+# Update all submodules to their latest commits
+git submodule update --remote
+
+# Update a specific submodule
+git submodule update --remote Products-ASP.NET
+```
+
+### Making Changes in Submodules
+1. Navigate to the submodule directory:
+   ```bash
+   cd Products-ASP.NET  # or ecommerce-platform-app
+   ```
+2. Make your changes
+3. Commit and push changes in the submodule
+4. Return to the main repository and commit the submodule reference:
+   ```bash
+   cd ..
+   git add Products-ASP.NET  # or ecommerce-platform-app
+   git commit -m "Update submodule to latest version"
+   git push
+   ```
+
+### Pulling Changes
+```bash
+# Pull changes from the main repository
+git pull
+
+# Update submodules after pulling
+git submodule update --init --recursive
+```
+
 ## Troubleshooting
 
 1. If you encounter SSL certificate issues:
@@ -93,6 +132,11 @@ The application uses SQLite as its database:
    - Check Docker logs: `docker-compose logs`
    - Verify all environment variables are set
    - Ensure ports 4200 and 7263 are available
+
+4. If submodules are not updating:
+   - Run `git submodule init` followed by `git submodule update`
+   - Check if you have access to the submodule repositories
+   - Verify the submodule URLs in `.gitmodules`
 
 ## Stopping the Application
 
