@@ -32,11 +32,21 @@ git submodule init
 git submodule update
 ```
 
-2. Create a `.env` file in the root directory with the following variables:
-```env
-GOOGLE_CLIENT_ID=your_google_client_id_here
-GOOGLE_CLIENT_SECRET=your_google_client_secret_here
-```
+2. Set up environment variables:
+   - Copy `.env.example` to `.env`:
+     ```bash
+     cp .env.example .env
+     ```
+   - Update the following variables in `.env`:
+     ```env
+     # Get these from Google Cloud Console (https://console.cloud.google.com)
+     GOOGLE_CLIENT_ID=your_google_client_id_here
+     GOOGLE_CLIENT_SECRET=your_google_client_secret_here
+
+     # Default values - can be changed in docker-compose.yml
+     CERTIFICATE_PATH=/certs/api_cert.pfx
+     CERTIFICATE_PASSWORD=123456
+     ```
 
 3. Ensure you have the SSL certificate:
    - Place your `api_cert.pfx` file in the `Products-ASP.NET/certs/` directory
@@ -69,11 +79,34 @@ docker-compose up --build
 
 ## Environment Variables
 
-Required environment variables:
+Required environment variables in `.env`:
+
+### Google OAuth Configuration
 - `GOOGLE_CLIENT_ID`: Your Google OAuth client ID
+  - Get this from Google Cloud Console
+  - Required for authentication
 - `GOOGLE_CLIENT_SECRET`: Your Google OAuth client secret
-- `CERTIFICATE_PATH`: Path to the SSL certificate (default: /certs/api_cert.pfx)
-- `CERTIFICATE_PASSWORD`: Password for the SSL certificate (default: 123456)
+  - Get this from Google Cloud Console
+  - Required for authentication
+
+### SSL Certificate Configuration
+- `CERTIFICATE_PATH`: Path to the SSL certificate
+  - Default: `/certs/api_cert.pfx`
+  - Can be changed in docker-compose.yml
+- `CERTIFICATE_PASSWORD`: Password for the SSL certificate
+  - Default: `123456`
+  - Can be changed in docker-compose.yml
+
+### Database Configuration
+- `ConnectionStrings__DefaultConnection`: SQLite database path
+  - Default: `Data Source=/app/data/Products.db`
+  - Used by the backend service
+
+### Frontend Configuration
+- `NODE_ENV`: Environment mode
+  - Default: `development`
+- `PORT`: Frontend port
+  - Default: `4200`
 
 ## Database
 
