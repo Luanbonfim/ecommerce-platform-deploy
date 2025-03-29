@@ -1,6 +1,8 @@
 # E-commerce Platform
 
 A full-stack e-commerce platform built with Angular (frontend) and ASP.NET (backend).
+![image](https://github.com/user-attachments/assets/d157419d-37a0-4ae0-bcdd-0bda2348c745)
+![image](https://github.com/user-attachments/assets/b5f18bf0-baf8-4d22-a5d5-8a9522885f77)
 
 ## Prerequisites
 
