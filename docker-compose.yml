@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./ecommerce-platform-app
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    environment:
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./Products-ASP.NET
+      dockerfile: Dockerfile
+    ports:
+      - "7263:7263"
+    environment:
+      - ConnectionStrings__DefaultConnection=Data Source=/app/data/Products.db
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+      - CERTIFICATE_PATH=${CERTIFICATE_PATH}
+      - CERTIFICATE_PASSWORD=${CERTIFICATE_PASSWORD}
+    volumes:
+      - ./Products-ASP.NET/data:/app/data
+    restart: unless-stopped

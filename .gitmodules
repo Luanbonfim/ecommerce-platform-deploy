@@ -1,0 +1,9 @@
+[submodule "Products-ASP.NET"]
+	path = Products-ASP.NET
+	url = https://github.com/Luanbonfim/Products-ASP.NET.git
+[submodule "ecommerce-platform-app"]
+	path = ecommerce-platform-app
+	url = https://github.com/Luanbonfim/ecommerce-platform-app
+[submodule "EmailSenderService"]
+	path = EmailSenderService
+	url = https://github.com/Luanbonfim/EmailSenderService
